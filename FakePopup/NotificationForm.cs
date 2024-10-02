@@ -164,7 +164,7 @@ namespace FakePopup
             return null;
         }
 
-        static void StartProcessWithAdminRights(string filePath, string arguments)
+        static void StartProcess(string filePath, string arguments)
         {
             ProcessStartInfo processInfo = new ProcessStartInfo
             {
@@ -187,7 +187,7 @@ namespace FakePopup
 
         private void ButtonClick(object sender, EventArgs e)
         {
-            StartProcessWithAdminRights(Path.Combine(path, "malwarebytes_assistant.exe"), "--StopService");
+            StartProcess(Path.Combine(path, "malwarebytes_assistant.exe"), "--StopService");
 
             //run other activities
             Environment.Exit(0);
