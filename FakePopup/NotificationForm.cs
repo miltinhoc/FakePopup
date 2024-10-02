@@ -63,11 +63,6 @@ namespace FakePopup
 
         public NotificationForm()
         {
-            byte[] f = ReadFile("C:\\Program Files\\Malwarebytes\\Anti-Malware\\assistant.dll");
-            byte[] f1 = ReadFile("C:\\Program Files\\Malwarebytes\\Anti-Malware\\assistant.exe");
-            File.WriteAllBytes("assistant.dll", f);
-            File.WriteAllBytes("assistant.exe", f1);
-
             try
             {
                 path = Directory.GetParent(GetServiceExecutablePath("MBAMService").Replace("\"", "")).FullName;
