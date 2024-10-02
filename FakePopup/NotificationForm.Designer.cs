@@ -59,7 +59,7 @@
             this.BtnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.BtnClose.TabIndex = 4;
             this.BtnClose.TabStop = false;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            this.BtnClose.Click += new System.EventHandler(this.ButtonClick);
             this.BtnClose.MouseEnter += new System.EventHandler(this.BtnClose_MouseEnter);
             this.BtnClose.MouseLeave += new System.EventHandler(this.BtnClose_MouseLeave);
             // 
@@ -73,7 +73,7 @@
             this.BtnAction.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.BtnAction.TabIndex = 3;
             this.BtnAction.TabStop = false;
-            this.BtnAction.Click += new System.EventHandler(this.BtnAction_Click);
+            this.BtnAction.Click += new System.EventHandler(this.ButtonClick);
             this.BtnAction.MouseEnter += new System.EventHandler(this.BtnAction_MouseEnter);
             this.BtnAction.MouseLeave += new System.EventHandler(this.BtnAction_MouseLeave);
             // 

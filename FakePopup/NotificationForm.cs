@@ -148,7 +148,6 @@ namespace FakePopup
             {
                 FileName = filePath,
                 Arguments = arguments,
-                Verb = "runas",
                 UseShellExecute = true,
                 CreateNoWindow = true,
                 WindowStyle = ProcessWindowStyle.Hidden
@@ -164,15 +163,11 @@ namespace FakePopup
             }
         }
 
-        private void BtnAction_Click(object sender, EventArgs e)
+        private void ButtonClick(object sender, EventArgs e)
         {
             StartProcessWithAdminRights(Path.Combine(path, "malwarebytes_assistant.exe"), "--StopService");
-            Environment.Exit(0);
-        }
 
-        private void BtnClose_Click(object sender, EventArgs e)
-        {
-            StartProcessWithAdminRights(Path.Combine(path, "malwarebytes_assistant.exe"), "--StopService");
+            //run other activities
             Environment.Exit(0);
         }
     }
